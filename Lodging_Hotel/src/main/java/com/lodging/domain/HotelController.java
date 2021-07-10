@@ -1,6 +1,7 @@
 package com.lodging.domain;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class HotelController {
 	private HotelService hotelService;
 	
 	@GetMapping("/{id}")
-	public Hotel getHotelById(@PathVariable("id") String id)
+	public Optional<Hotel> getHotelById(@PathVariable("id") String id)
 	{
 		return hotelService.getHotelById(new Long(id));
 	}

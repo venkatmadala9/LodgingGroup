@@ -1,17 +1,20 @@
 package com.lodging.domain;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HotelService {
 	
 	@Autowired
 	private HotelRepository hotelRepo;
 	
-	public Hotel getHotelById(Long id)
+	public Optional<Hotel> getHotelById(Long id)
 	{
-		return hotelRepo.getById(id);
+		return hotelRepo.findById(id);
 	}
 	
 	public List<Hotel> getHotels()
