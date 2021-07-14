@@ -22,4 +22,8 @@ public class HotelService {
 		return hotelRepo.findAll();
 	}
 
+	public Hotel saveHotel(Hotel hotel)
+	{
+		return hotelRepo.save(hotel);
+	}
 }
