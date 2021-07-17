@@ -1,10 +1,13 @@
 package com.lodging.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -30,8 +33,9 @@ public class Hotel {
 	@Column 
 	private Long hotelNumber;
 	
-	@Column
-	private String address;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_oid", referencedColumnName = "oid")
+	private Address address;
 
 	public Long getOid() {
 		return oid;
@@ -73,11 +77,11 @@ public class Hotel {
 		this.hotelNumber = hotelNumber;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	

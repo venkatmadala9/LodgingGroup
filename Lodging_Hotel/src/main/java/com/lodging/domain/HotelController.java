@@ -38,4 +38,9 @@ public class HotelController {
 		return hotelService.saveHotel(hotel);
 	}
 
+	@GetMapping("/delete/{id}")
+	public void deleteHotel(@PathVariable("id") String id)
+	{
+		hotelService.deleteHotel(new Long(id));
+	}
 }
